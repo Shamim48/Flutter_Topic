@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:widget_demo/custom_design.dart';
 import 'package:widget_demo/date_image.dart';
+import 'package:widget_demo/drawer_bottom_nav.dart';
 import 'package:widget_demo/input_form.dart';
 import 'package:widget_demo/stack_demo.dart';
 import 'package:widget_demo/table_demo.dart';
+import 'package:widget_demo/utils/styles.dart';
 
 void main() {
   runApp(const MyApp());
@@ -77,17 +79,18 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=> TableDemo()));
             },
-               child: const Text("Table Page")),
+               child: const Text("Table Page", style: LatoBold,)),
 
 
             ElevatedButton(onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomDesign()));
                         },
-                           child: const Text("Custom Design")),
+                           child: const Text("Custom Design", style: LatoRegular,)),
 
             buildElevatedButton(context, "Input Form", InputForm()),
 
             buildElevatedButton(context, "Date Time and Image", DateAndImageDemo()),
+            buildElevatedButton(context, "Drawer and Nav", DrawerAndBottomNav()),
 
             Image.network('https://www.advancedcustomfields.com/wp-content/uploads/2013/11/acf-google-map-field-interface.png' ,
             fit: BoxFit.contain,
