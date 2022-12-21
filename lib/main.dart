@@ -6,6 +6,7 @@ import 'package:widget_demo/drawer_bottom_nav.dart';
 import 'package:widget_demo/input_form.dart';
 import 'package:widget_demo/responsive_design.dart';
 import 'package:widget_demo/stack_demo.dart';
+import 'package:widget_demo/tab_bar_demo.dart';
 import 'package:widget_demo/table_demo.dart';
 import 'package:widget_demo/utils/styles.dart';
 
@@ -95,6 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
             buildElevatedButton(context, "Drawer and Nav", DrawerAndBottomNav()),
             buildElevatedButton(context, "Font Demo", CustomFont()),
             buildElevatedButton(context, "Responsive Design", ResponsiveDesign()),
+            buildElevatedButton(context, "Tab Bar view", TabBarDemo()),
 
             Image.network('https://www.advancedcustomfields.com/wp-content/uploads/2013/11/acf-google-map-field-interface.png' ,
             fit: BoxFit.contain,
@@ -116,9 +118,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
 }
 
-ElevatedButton buildElevatedButton(BuildContext context, String text, Widget widget) {
-  return ElevatedButton(onPressed: (){
-    Navigator.push(context, MaterialPageRoute(builder: (context)=> widget));
-  },
-      child:  Text(text));
+ buildElevatedButton(BuildContext context, String text, Widget widget) {
+  return Padding(
+    padding:  EdgeInsets.all(8.0),
+    child: ElevatedButton(onPressed: (){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> widget));
+    },
+        child:  Text(text)),
+  );
 }

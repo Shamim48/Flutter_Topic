@@ -38,13 +38,35 @@ class MobileDesign extends StatefulWidget {
 class _MobileDesignState extends State<MobileDesign> {
   @override
   Widget build(BuildContext context) {
+    var cw=MediaQuery.of(context).size.width;
+    var ch=MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: Text(" Mobile "),
       ),
       drawer: CustomDrawer(),
-      body: Center(
-        child: Text("Mobile", style: LatoBold,),
+      body: ListView(
+        children: [
+          Container(
+              height: MediaQuery.of(context).size.width,
+              alignment: Alignment.center,
+              color: Colors.grey,
+              child: Text('Video Player'),
+            ),
+          SizedBox(height: 10,),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            color: Colors.green,
+            child: ListView.builder(
+                itemCount: 20,
+                itemBuilder: (context, index){
+                  return ListTile(
+                    leading: Icon(Icons.image),
+                    title: Text("Video Name"),
+                  );
+                }),
+          )
+        ],
       )
     );
   }
