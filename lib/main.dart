@@ -4,6 +4,7 @@ import 'package:widget_demo/custom_font.dart';
 import 'package:widget_demo/date_image.dart';
 import 'package:widget_demo/drawer_bottom_nav.dart';
 import 'package:widget_demo/input_form.dart';
+import 'package:widget_demo/responsive_design.dart';
 import 'package:widget_demo/stack_demo.dart';
 import 'package:widget_demo/table_demo.dart';
 import 'package:widget_demo/utils/styles.dart';
@@ -93,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
             buildElevatedButton(context, "Date Time and Image", DateAndImageDemo()),
             buildElevatedButton(context, "Drawer and Nav", DrawerAndBottomNav()),
             buildElevatedButton(context, "Font Demo", CustomFont()),
+            buildElevatedButton(context, "Responsive Design", ResponsiveDesign()),
 
             Image.network('https://www.advancedcustomfields.com/wp-content/uploads/2013/11/acf-google-map-field-interface.png' ,
             fit: BoxFit.contain,
