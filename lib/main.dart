@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 import 'package:widget_demo/custom_design.dart';
 import 'package:widget_demo/custom_font.dart';
 import 'package:widget_demo/date_image.dart';
 import 'package:widget_demo/drawer_bottom_nav.dart';
 import 'package:widget_demo/input_form.dart';
+import 'package:widget_demo/provider/post_provider.dart';
 import 'package:widget_demo/responsive_design.dart';
+import 'package:widget_demo/screen/post_demo.dart';
 import 'package:widget_demo/stack_demo.dart';
 import 'package:widget_demo/tab_bar_demo.dart';
 import 'package:widget_demo/table_demo.dart';
 import 'package:widget_demo/utils/styles.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+      MultiProvider(
+          providers: providers,
+          child: MyApp())
+  );
 }
-
+List<SingleChildWidget> providers = [
+  ChangeNotifierProvider<PostDataProvider>(create: (_) => PostDataProvider()),
+];
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -64,9 +74,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child: ListView(
 
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
              RichText(text: const TextSpan(
               text:  "Span Text ", style:  TextStyle(color: Colors.black),
@@ -97,13 +106,14 @@ class _MyHomePageState extends State<MyHomePage> {
             buildElevatedButton(context, "Font Demo", CustomFont()),
             buildElevatedButton(context, "Responsive Design", ResponsiveDesign()),
             buildElevatedButton(context, "Tab Bar view", TabBarDemo()),
-
+            buildElevatedButton(context, "API Demo", PostDemoScreen()),
+/*
             Image.network('https://www.advancedcustomfields.com/wp-content/uploads/2013/11/acf-google-map-field-interface.png' ,
             fit: BoxFit.contain,
            // color: Colors.deepOrange,
             colorBlendMode: BlendMode.colorDodge,
             semanticLabel: "Google Map",
-            loadingBuilder: (context, child, loadingProgress) => loadingProgress== null ? child : LinearProgressIndicator()),
+            loadingBuilder: (context, child, loadingProgress) => loadingProgress== null ? child : LinearProgressIndicator()),*/
 
           ],
         ),

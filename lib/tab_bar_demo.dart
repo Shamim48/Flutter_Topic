@@ -49,7 +49,6 @@ class _TabBarDemoState extends State<TabBarDemo> with TickerProviderStateMixin {
               TableDemo(),
               InputForm(),
               ResponsiveDesign(),
-
             ],
           ),
         ),
