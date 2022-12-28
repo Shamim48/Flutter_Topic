@@ -6,6 +6,8 @@ class PostDataProvider with ChangeNotifier {
   PostModel? post = PostModel();
   bool loading = false;
   PostRepo? postRepo=PostRepo();
+  List<PostModel>? _postList;
+  List<PostModel>? get postList=>_postList;
 
   getPostData(context) async {
     loading = true;
@@ -13,4 +15,14 @@ class PostDataProvider with ChangeNotifier {
     loading = false;
     notifyListeners();
   }
+
+   getPostListData(context) async {
+    loading = true;
+    _postList = await postRepo!.getPostListData(context);
+    loading = false;
+    print(_postList);
+    notifyListeners();
+  }
+
+
 }

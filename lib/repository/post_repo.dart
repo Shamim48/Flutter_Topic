@@ -32,4 +32,36 @@ class PostRepo{
     }
     return result;
   }
+
+   Future<List<PostModel>> getPostListData(context) async {
+    PostModel? result;
+    List<PostModel> postList=[];
+    try {
+      var url =
+      Uri.https('jsonplaceholder.typicode.com', '/posts');
+
+      var res= await http.get(url);
+      if (res.statusCode == 200) {
+        var item = json.decode(res.body);
+      //  result = PostModel.fromJson(item);
+
+        for( var json in item){
+          PostModel post=  PostModel(
+            userId: json['userId'],
+            id: json['id'],
+            title: json['title'] ?? "",
+            body: json['body'] ?? "",
+          );
+          postList.add(post);
+        }
+      } else {
+        print("Data not found");
+      }
+    } catch (e) {
+      print(e);
+    }
+    return postList;
+  }
+
+
 }
