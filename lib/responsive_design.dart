@@ -1,8 +1,8 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:widget_demo/drawer_bottom_nav.dart';
+import 'package:widget_demo/input_form.dart';
 import 'package:widget_demo/utils/styles.dart';
 
 class ResponsiveDesign extends StatefulWidget {
@@ -18,8 +18,8 @@ class _ResponsiveDesignState extends State<ResponsiveDesign> {
   Widget build(BuildContext context) {
     var cw=MediaQuery.of(context).size.width;
     var ch=MediaQuery.of(context).size.height;
-    return LayoutBuilder(builder: (context , constain){
-      if(constain.maxWidth <600){
+    return LayoutBuilder(builder: (context , size){
+      if(size.maxWidth <500){
         return MobileDesign();
       }else{
         return  WebDesign();
@@ -80,6 +80,8 @@ class WebDesign extends StatefulWidget {
 }
 
 class _WebDesignState extends State<WebDesign> {
+  var dvalue="";
+
   @override
   Widget build(BuildContext context) {
     var cw=MediaQuery.of(context).size.width;
@@ -96,7 +98,7 @@ class _WebDesignState extends State<WebDesign> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(width: 50,),
-                  Text("Home" , style: LatoMedium.copyWith(fontSize: 18),),
+                  Text("Home", style: LatoMedium.copyWith(fontSize: 18),),
                   SizedBox(width: 20,),
                   Text("Contact", style: LatoMedium.copyWith(fontSize: 18),),
                   SizedBox(width: 20,),
@@ -108,6 +110,7 @@ class _WebDesignState extends State<WebDesign> {
                 ],
               ),
             ),
+            SizedBox(height: 10,),
             Container(
               width: MediaQuery.of(context).size.width,
               child: Row(
@@ -130,7 +133,8 @@ class _WebDesignState extends State<WebDesign> {
                     height: ch-50,
                     color: Colors.green,
                     child: ListView.builder(
-                        itemCount: 20,
+                        itemCount: 40,
+                        padding: EdgeInsets.only(top: 5),
                         itemBuilder: (context, index){
                           return ListTile(
                             leading: Icon(Icons.image),
@@ -167,6 +171,111 @@ class _WebDesignState extends State<WebDesign> {
         ListTile(
           leading: Icon(Icons.person),
           title: const Text(' My Profile '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.book),
+          title: const Text(' My Course '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.workspace_premium),
+          title: const Text(' Go Premium '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.video_label),
+          title: const Text(' Saved Videos '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.edit),
+          title: const Text(' Edit Profile '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.logout),
+          title: const Text('LogOut'),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.book),
+          title: const Text(' My Course '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.workspace_premium),
+          title: const Text(' Go Premium '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.video_label),
+          title: const Text(' Saved Videos '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.edit),
+          title: const Text(' Edit Profile '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.logout),
+          title: const Text('LogOut'),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.book),
+          title: const Text(' My Course '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.workspace_premium),
+          title: const Text(' Go Premium '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.video_label),
+          title: const Text(' Saved Videos '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.edit),
+          title: const Text(' Edit Profile '),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.logout),
+          title: const Text('LogOut'),
           onTap: () {
             Navigator.pop(context);
           },

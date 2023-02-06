@@ -13,11 +13,19 @@ class _TableDemoState extends State<TableDemo> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Mark Table"),
-        leading: InkWell(
+        /*leading: InkWell(
             onTap: (){
               Navigator.pop(context);
             },
-            child: Icon(Icons.arrow_back, color: Colors.white,)),
+            child: Icon(Icons.arrow_back, color: Colors.white,)),*/
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(child: Text("Champion Argentina")),
+
+          ],
+        ),
       ),
 
       body: Container(

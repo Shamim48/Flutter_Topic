@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_demo/drawer_bottom_nav.dart';
 
 class StackScreen extends StatefulWidget {
   const StackScreen({Key? key}) : super(key: key);
@@ -19,6 +20,7 @@ class _StackScreenState extends State<StackScreen> {
             },
             child: Icon(Icons.arrow_back, color: Colors.white,)),
       ),
+      endDrawer: CustomDrawer(),
 
       body: Container(
         height: 150,

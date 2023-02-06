@@ -26,6 +26,7 @@ class _TabBarDemoState extends State<TabBarDemo> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 4,
         child: Scaffold(
@@ -33,10 +34,10 @@ class _TabBarDemoState extends State<TabBarDemo> with TickerProviderStateMixin {
             bottom: TabBar(
               controller: _tabController,
               tabs: [
-                const Tab(icon: Icon(Icons.home), child: const Text('Home')),
-                const Tab(icon: Icon(Icons.table_chart), text: 'Table'),
-                const Tab(icon: Icon(Icons.format_align_center), text: 'Form'),
-                const Tab(icon: Icon(Icons.restore), text: 'Responsive'),
+                 Tab(icon: Icon(Icons.home), child: const Text('Home')),
+                 Tab(icon: Icon(Icons.table_chart), text: 'Table'),
+                 Tab(icon: Icon(Icons.format_align_center), text: 'Form'),
+                 Tab(icon: Icon(Icons.restore), text: 'Responsive'),
               ],
             ),
           ),
@@ -49,7 +50,6 @@ class _TabBarDemoState extends State<TabBarDemo> with TickerProviderStateMixin {
               TableDemo(),
               InputForm(),
               ResponsiveDesign(),
-
             ],
           ),
         ),

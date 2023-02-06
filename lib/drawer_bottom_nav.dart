@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:widget_demo/custom_design.dart';
 import 'package:widget_demo/date_image.dart';
 import 'package:widget_demo/main.dart';
 import 'package:widget_demo/stack_demo.dart';
 import 'package:widget_demo/table_demo.dart';
-
 import 'utils/color_resources.dart';
 
 class DrawerAndBottomNav extends StatefulWidget {
@@ -15,11 +15,11 @@ class DrawerAndBottomNav extends StatefulWidget {
 
 class _DrawerAndBottomNavState extends State<DrawerAndBottomNav> {
   late String title="Drawer and Bottom Nav";
-
   late PageController _pageController;
   int _pageIndex=1;
   late List<Widget> _screenList;
   GlobalKey<ScaffoldMessengerState> _scaffoldKey=GlobalKey();
+  IconData? icon;
 
   @override
   void initState() {
@@ -53,12 +53,12 @@ class _DrawerAndBottomNavState extends State<DrawerAndBottomNav> {
       },
       child: Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(
+       /* appBar: AppBar(
           title: Text(title),
           backgroundColor: Colors.green,
-        ),
+        ),*/
 
-        drawer: CustomDrawer(),
+       drawer: CustomDrawer(),
         bottomNavigationBar: Container(
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.only(top: 10, bottom: 5),
@@ -79,13 +79,25 @@ class _DrawerAndBottomNavState extends State<DrawerAndBottomNav> {
         body: PageView.builder(
             controller: _pageController,
             itemCount: _screenList.length,
-            physics: NeverScrollableScrollPhysics(),
+            physics: ScrollPhysics(),
             itemBuilder: (context, index){
               return _screenList[index];
             }),
 
       ),
     );
+  }
+
+  Expanded buildBottomNavItem() {
+    return Expanded(child: InkWell(
+          onTap: _setPage(1),
+          child: Icon(icon),
+          /* Image.asset(
+      image,
+      width: isSelect ? 45:35,
+      height: isSelect ? 45:35,
+    ),*/
+        ));
   }
 }
 
@@ -114,6 +126,7 @@ class CustomDrawer extends StatelessWidget {
             title: const Text(' My Profile '),
             onTap: () {
               Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomDesign()));
             },
           ),
           ListTile(
